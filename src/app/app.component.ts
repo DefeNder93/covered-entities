@@ -9,7 +9,6 @@ import {Api} from './core/api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
 
   constructor(private oauthService: OAuthService, private api: Api) {
     this.configureWithNewConfigApi();
