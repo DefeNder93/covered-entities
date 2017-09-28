@@ -5,6 +5,7 @@ import { OAuthModule } from 'angular-oauth2-oidc';
 import { AppComponent } from './app.component';
 import {HttpModule} from '@angular/http';
 import {CoreModule} from './core/core.module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import {CoreModule} from './core/core.module';
     BrowserModule,
     HttpModule,
     OAuthModule.forRoot(),
+    NgbModule.forRoot(),
     CoreModule
   ],
   providers: [],
