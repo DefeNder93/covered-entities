@@ -1,15 +1,17 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
+import {OAuthService} from 'angular-oauth2-oidc';
 
 @Component({
   selector: 'app-login',
   templateUrl: 'login.component.html',
   styleUrls: ['login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  constructor() {
+  constructor(private oauthService: OAuthService) {
   }
 
-  ngOnInit() {
+  public login() {
+    this.oauthService.initImplicitFlow();
   }
 }

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {JwksValidationHandler, OAuthService} from 'angular-oauth2-oidc';
 import {authConfig} from './auth.config';
-import {Api} from './core/api.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +9,7 @@ import {Api} from './core/api.service';
 })
 export class AppComponent {
 
-  constructor(private oauthService: OAuthService, private api: Api) {
+  constructor(private oauthService: OAuthService) {
     this.configureWithNewConfigApi();
   }
 
@@ -18,30 +17,6 @@ export class AppComponent {
     this.oauthService.configure(authConfig);
     this.oauthService.tokenValidationHandler = new JwksValidationHandler();
     this.oauthService.loadDiscoveryDocumentAndTryLogin();
-  }
-
-  public login() {
-    this.oauthService.initImplicitFlow();
-  }
-
-  public logoff() {
-    this.oauthService.logOut();
-  }
-
-  public getCientsTest() {
-    this.api.getClients().subscribe(r => {
-      console.log('r', r);
-    }, e => {
-      console.log('e', e);
-    });
-  }
-
-  public get name() {
-    const claims = this.oauthService.getIdentityClaims();
-    if (!claims) {
-      return null;
-    }
-    return claims['given_name'];
   }
 
 }
