@@ -10,6 +10,8 @@ import {LoginComponent} from './login/login.component';
 import {ClientComponent} from './client/client.component';
 import {AppRoutingModule} from './routing.module';
 import {NavbarComponent} from './navbar/navbar.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import {NavbarComponent} from './navbar/navbar.component';
     OAuthModule.forRoot(),
     NgbModule.forRoot(),
     CoreModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxPaginationModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

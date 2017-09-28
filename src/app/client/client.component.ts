@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Api} from "../core/api.service";
+import {Api} from '../core/api.service';
 
 @Component({
   selector: 'app-client',
@@ -8,15 +8,19 @@ import {Api} from "../core/api.service";
 })
 export class ClientComponent implements OnInit {
 
-  constructor(private api: Api) {
-  }
+  constructor(private api: Api) {}
+
+  clients = [];
+  currentPage = 1;
+  itemsPerPage = 10;
 
   ngOnInit() {
+    this.getCients();
   }
 
-  public getCientsTest() {
+  public getCients() {
     this.api.getClients().subscribe(r => {
-      console.log('r', r);
+      this.clients = r.value;
     }, e => {
       console.log('e', e);
     });

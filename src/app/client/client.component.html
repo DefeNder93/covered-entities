@@ -1,3 +1,36 @@
-<button class="btn btn-default" (click)="getCientsTest()">
-  Get Clients Test
-</button>
+<div class="container-fluid mt-5">
+  <form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+
+  <table class="table mt-3">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>C.E. ID</th>
+      <th>QB Ref ID</th>
+      <th>Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let client of clients | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+      <td>{{client.ClientName}}</td>
+      <td>{{client.ClientID}}</td>
+      <td>{{client.QBCustomerId}}</td>
+      <td>
+        <a href="javascript:void(0)">
+          <span class="material-icons">mode edit</span>
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+  Rows per page:
+  <select class="custom-select" [(ngModel)]="itemsPerPage">
+    <option selected value="10">10</option>
+    <option value="50">50</option>
+    <option value="100">100</option>
+  </select>
+</div>
