@@ -12,13 +12,15 @@ import {AppRoutingModule} from './routing.module';
 import {NavbarComponent} from './navbar/navbar.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {FormsModule} from '@angular/forms';
+import {ClientModalComponent} from './client/client-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ClientComponent,
-    NavbarComponent
+    NavbarComponent,
+    ClientModalComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +33,7 @@ import {FormsModule} from '@angular/forms';
     FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ClientModalComponent]
 })
 export class AppModule { }
