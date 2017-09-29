@@ -19,7 +19,6 @@ export class ClientComponent implements OnInit {
   currentPage = 1;
   itemsPerPage = 10;
   searchQuery = '';
-  closeResult: string;
 
   sorting = {
     active: 'ClientName',
@@ -27,9 +26,9 @@ export class ClientComponent implements OnInit {
   };
 
   ngOnInit() {
-    this.oauthService.loadDiscoveryDocument().then(r => {
+    this.oauthService.getAccessToken() ? this.getCients() : setTimeout(() => {
       this.getCients();
-    });
+    }, 1000);
   }
 
   sort() {

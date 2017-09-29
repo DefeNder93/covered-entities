@@ -16,5 +16,7 @@ export const authConfig: AuthConfig = <AuthConfig>{
   // The first three are defined by OIDC. The 4th is a usecase-specific one
   scope: 'central-api openid',
 
-  responseType: 'id_token token'
+  responseType: 'id_token token',
+
+  userinfoEndpoint: 'https://auth340bpreprod.azurewebsites.net/connect/userinfo'
 };

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {OAuthService} from 'angular-oauth2-oidc';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -22,5 +22,8 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    // TODO get user name
+    // this.oauthService.loadUserProfile().then(p => {
+    // });
   }
 }
