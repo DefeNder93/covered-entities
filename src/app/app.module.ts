@@ -15,6 +15,7 @@ import {FormsModule} from '@angular/forms';
 import {ClientModalComponent} from './client/client-modal.component';
 import {PharmaciesComponent} from './pharmacies/pharmacies.component';
 import {ContentComponent} from './content/content.component';
+import {ClientModalConfirmComponent} from './client/client-modal-confirm.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {ContentComponent} from './content/content.component';
     NavbarComponent,
     ClientModalComponent,
     PharmaciesComponent,
-    ContentComponent
+    ContentComponent,
+    ClientModalConfirmComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +40,6 @@ import {ContentComponent} from './content/content.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ClientModalComponent]
+  entryComponents: [ClientModalComponent, ClientModalConfirmComponent]
 })
 export class AppModule { }

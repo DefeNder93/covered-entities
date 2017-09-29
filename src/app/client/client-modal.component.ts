@@ -1,16 +1,24 @@
 import {Component, Input} from '@angular/core';
-import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {ClientModalConfirmComponent} from "./client-modal-confirm.component";
 @Component({
   selector: 'app-client-modal-content',
   templateUrl: 'client-modal.component.html'
 })
 export class ClientModalComponent {
-  @Input() name;
+
+  constructor(private modalService: NgbModal, public activeModal: NgbActiveModal) {}
 
   save() {
     this.activeModal.close();
     alert('Saved');
   }
 
-  constructor(public activeModal: NgbActiveModal) {}
+  cancel() {
+    this.modalService.open(ClientModalConfirmComponent).result.then((result) => {
+      // do nothing
+    }, (reason) => {
+      this.activeModal.dismiss();
+    });
+  }
 }
