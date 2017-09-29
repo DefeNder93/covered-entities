@@ -71,11 +71,6 @@ export class ClientComponent implements OnInit {
   open(client) {
     const modalRef = this.modalService.open(ClientModalComponent);
     modalRef.componentInstance.name = client.ClientName;
-    modalRef.result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed `;
-    });
   }
 
   public getCients() {

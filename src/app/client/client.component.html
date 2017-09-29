@@ -31,16 +31,24 @@
     <td>{{client.QBCustomerId}}</td>
     <td>
       <a (click)="open(client)" href="javascript:void(0)">
-        <i class="material-icons">mode edit</i>
+        <i class="material-icons">edit</i>
       </a>
     </td>
   </tr>
   </tbody>
 </table>
-<pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
-Rows per page:
-<select class="custom-select" [(ngModel)]="itemsPerPage">
-  <option selected value="10">10</option>
-  <option value="50">50</option>
-  <option value="100">100</option>
-</select>
+
+<div class="row">
+  <div class="col-sm-6">
+    <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+  </div>
+  <div class="col-sm-6">
+    Rows per page:
+    <select class="custom-select" [(ngModel)]="itemsPerPage">
+      <option selected value="10">10</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+    </select>
+  </div>
+</div>
+
