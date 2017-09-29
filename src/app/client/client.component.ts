@@ -21,10 +21,46 @@ export class ClientComponent implements OnInit {
   searchQuery = '';
   closeResult: string;
 
+  sorting = {
+    active: 'ClientName',
+    reverse: false
+  };
+
   ngOnInit() {
     this.oauthService.loadDiscoveryDocument().then(r => {
       this.getCients();
     });
+  }
+
+  sort() {
+    this.clients = this.clients.sort((a, b) => this.sorting.reverse ? this.compare(b[this.sorting.active], a[this.sorting.active])
+        : this.compare(a[this.sorting.active], b[this.sorting.active]));
+  }
+
+  compare(a, b) {
+    if (!a) {
+      return 1;
+    }
+    if (!b) {
+      return -1;
+    }
+    if (a.localeCompare) {
+      return a.localeCompare(b);
+    }
+    return a > b ? 1 : -1;
+  }
+
+  showSortingControl(name, reverse) {
+    return this.sorting.active === name && this.sorting.reverse === reverse;
+  }
+
+  setSorting(name, reverse) {
+    this.sorting.active = name;
+    this.sorting.reverse = reverse;
+  }
+
+  getInitialSorting(active) {
+    return this.sorting.active === active ? !this.sorting.reverse : false;
   }
 
   search() {
@@ -46,6 +82,7 @@ export class ClientComponent implements OnInit {
     this.api.getClients().subscribe(r => {
       this.clients = r.value;
       this.initialClients = r.value;
+      this.sort();
     }, r => {
       console.log(r.json().error.message);
       if (r.status === 401) {

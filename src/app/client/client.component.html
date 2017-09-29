@@ -6,9 +6,21 @@
 <table class="table mt-3">
   <thead>
   <tr>
-    <th>Name</th>
-    <th>C.E. ID</th>
-    <th>QB Ref ID</th>
+    <th>
+      <span (click)="setSorting('ClientName', getInitialSorting('ClientName')); sort()">Name</span>
+      <i class="material-icons" [hidden]="!showSortingControl('ClientName', false)" (click)="setSorting('ClientName', true); sort()">keyboard_arrow_down</i>
+      <i class="material-icons" [hidden]="!showSortingControl('ClientName', true)" (click)="setSorting('ClientName', false); sort()">keyboard_arrow_up</i>
+    </th>
+    <th>
+      <span (click)="setSorting('ClientID', getInitialSorting('ClientID')); sort()">C.E. ID</span>
+      <i class="material-icons" [hidden]="!showSortingControl('ClientID', false)" (click)="setSorting('ClientID', true); sort()">keyboard_arrow_down</i>
+      <i class="material-icons" [hidden]="!showSortingControl('ClientID', true)" (click)="setSorting('ClientID', false); sort()">keyboard_arrow_up</i>
+    </th>
+    <th>
+      <span (click)="setSorting('QBCustomerId', getInitialSorting('QBCustomerId')); sort()">QB Ref ID</span>
+      <i class="material-icons" [hidden]="!showSortingControl('QBCustomerId', false)" (click)="setSorting('QBCustomerId', true); sort()">keyboard_arrow_down</i>
+      <i class="material-icons" [hidden]="!showSortingControl('QBCustomerId', true)" (click)="setSorting('QBCustomerId', false); sort()">keyboard_arrow_up</i>
+    </th>
     <th>Edit</th>
   </tr>
   </thead>
@@ -19,7 +31,7 @@
     <td>{{client.QBCustomerId}}</td>
     <td>
       <a (click)="open(client)" href="javascript:void(0)">
-        <span class="material-icons">mode edit</span>
+        <i class="material-icons">mode edit</i>
       </a>
     </td>
   </tr>
