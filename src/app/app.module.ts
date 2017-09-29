@@ -13,6 +13,8 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {FormsModule} from '@angular/forms';
 import {ClientModalComponent} from './client/client-modal.component';
+import {PharmaciesComponent} from './pharmacies/pharmacies.component';
+import {ContentComponent} from './content/content.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import {ClientModalComponent} from './client/client-modal.component';
     LoginComponent,
     ClientComponent,
     NavbarComponent,
-    ClientModalComponent
+    ClientModalComponent,
+    PharmaciesComponent,
+    ContentComponent
   ],
   imports: [
     BrowserModule,

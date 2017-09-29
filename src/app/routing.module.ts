@@ -1,11 +1,15 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {LoginComponent} from './login/login.component';
+import {PharmaciesComponent} from './pharmacies/pharmacies.component';
+import {ContentComponent} from './content/content.component';
 import {ClientComponent} from './client/client.component';
 
 const routes: Routes = [
-  // {path: '', redirectTo: '/clients', pathMatch: 'full'},
-  {path: '', component: ClientComponent},
+  {path: '', component: ContentComponent, children: [
+    { path: '', component: ClientComponent },
+    { path: 'pharmacies', component: PharmaciesComponent }
+  ]},
   {path: 'login', component: LoginComponent}
 ];
 
